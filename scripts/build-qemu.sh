@@ -176,7 +176,7 @@ then
   then
     # Download helper script from GitHub git.
     echo "Downloading helper script..."
-    curl -L "https://github.com/gnuarmeclipse/build-scripts/raw/master/scripts/build-helper.sh" \
+    curl -L "https://github.com/Portal-Controlled-SW/build-scripts/raw/master/scripts/build-helper.sh" \
       --output "${WORK_FOLDER}/scripts/build-helper.sh"
     helper_script="${WORK_FOLDER}/scripts/build-helper.sh"
   else
@@ -583,16 +583,8 @@ then
 
   cd "${WORK_FOLDER}"
 
-  if [ "${USER}" == "ilg" ]
-  then
-    # Shortcut for ilg, who has full access to the repo.
-    echo
-    echo "If asked, enter ${USER} GitHub password for git clone"
-    git clone https://github.com/gnuarmeclipse/qemu.git gnuarmeclipse-${APP_LC_NAME}.git
-  else
-    # For regular read/only access, use the http url.
-    git clone http://github.com/gnuarmeclipse/qemu.git gnuarmeclipse-${APP_LC_NAME}.git
-  fi
+  # For regular read/only access, use the http url.
+  git clone http://github.com/Portal-Controlled-SW/qemu.git gnuarmeclipse-${APP_LC_NAME}.git
 
   # Change to the gnuarmeclipse branch. On subsequent runs use "git pull".
   cd "${GIT_FOLDER}"
